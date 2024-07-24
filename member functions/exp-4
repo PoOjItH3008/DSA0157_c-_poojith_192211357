@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+protected:
+    string name;
+    int id;
+    double salary;
+
+public:
+    Employee(string n, int i, double s) : name(n), id(i), salary(s) {}
+
+    void setName(string n) { name = n; }
+    void setId(int i) { id = i; }
+    void setSalary(double s) { salary = s; }
+
+    string getName() const { return name; }
+    int getId() const { return id; }
+    double getSalary() const { return salary; }
+};
+
+class Manager : public Employee {
+private:
+    string department;
+    double bonus;
+
+public:
+    Manager(string n, int i, double s, string d, double b)
+        : Employee(n, i, s), department(d), bonus(b) {}
+
+    void setDepartment(string d) { department = d; }
+    void setBonus(double b) { bonus = b; }
+
+    string getDepartment() const { return department; }
+    double getBonus() const { return bonus; }
+};
+
+class Engineer : public Employee {
+private:
+    string specialty;
+    int hours;
+
+public:
+    Engineer(string n, int i, double s, string sp, int h)
+        : Employee(n, i, s), specialty(sp), hours(h) {}
+
+    void setSpecialty(string sp) { specialty = sp; }
+    void setHours(int h) { hours = h; }
+
+    string getSpecialty() const { return specialty; }
+    int getHours() const { return hours; }
+};
+
+int main() {
+    Manager manager("Alice", 1, 75000, "HR", 5000);
+    Engineer engineer("Bob", 2, 65000, "Software", 40);
+
+    cout << "Manager: " << manager.getName() << ", ID: " << manager.getId() << ", Salary: $" << manager.getSalary()
+         << ", Department: " << manager.getDepartment() << ", Bonus: $" << manager.getBonus() << endl;
+
+    cout << "Engineer: " << engineer.getName() << ", ID: " << engineer.getId() << ", Salary: $" << engineer.getSalary()
+         << ", Specialty: " << engineer.getSpecialty() << ", Hours: " << engineer.getHours() << " per week" << endl;
+
+    return 0;
+}
