@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string val = "Hello, World!";
+    string *ptr = &val;
+
+    cout << "Value: " << *ptr << endl;
+
+    return 0;
+}
