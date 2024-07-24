@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Vehicle {
+protected:
+    string make;
+    string model;
+    int year;
+
+public:
+    Vehicle(string m, string mod, int y) : make(m), model(mod), year(y) {}
+
+    void setMake(string m) { make = m; }
+    void setModel(string mod) { model = mod; }
+    void setYear(int y) { year = y; }
+
+    string getMake() const { return make; }
+    string getModel() const { return model; }
+    int getYear() const { return year; }
+};
+
+class Car : public Vehicle {
+private:
+    int seatingCapacity;
+    string fuelType;
+
+public:
+    Car(string m, string mod, int y, int s, string f)
+        : Vehicle(m, mod, y), seatingCapacity(s), fuelType(f) {}
+
+    void setSeatingCapacity(int s) { seatingCapacity = s; }
+    void setFuelType(string f) { fuelType = f; }
+
+    int getSeatingCapacity() const { return seatingCapacity; }
+    string getFuelType() const { return fuelType; }
+};
+
+class Truck : public Vehicle {
+private:
+    double payloadCapacity;
+    double towingCapacity;
+
+public:
+    Truck(string m, string mod, int y, double p, double t)
+        : Vehicle(m, mod, y), payloadCapacity(p), towingCapacity(t) {}
+
+    void setPayloadCapacity(double p) { payloadCapacity = p; }
+    void setTowingCapacity(double t) { towingCapacity = t; }
+
+    double getPayloadCapacity() const { return payloadCapacity; }
+    double getTowingCapacity() const { return towingCapacity; }
+};
+
+int main() {
+    Car car("Toyota", "Camry", 2020, 5, "Petrol");
+    Truck truck("Ford", "F-150", 2019, 1000.0, 5000.0);
+
+    cout << "Car: " << car.getMake() << " " << car.getModel() << ", Year: " << car.getYear()
+         << ", Seating Capacity: " << car.getSeatingCapacity() << ", Fuel Type: " << car.getFuelType() << endl;
+
+    cout << "Truck: " << truck.getMake() << " " << truck.getModel() << ", Year: " << truck.getYear()
+         << ", Payload Capacity: " << truck.getPayloadCapacity() << " kg, Towing Capacity: " << truck.getTowingCapacity() << " kg" << endl;
+
+    return 0;
+}
