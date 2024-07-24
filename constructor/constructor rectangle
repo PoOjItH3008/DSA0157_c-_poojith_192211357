@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    double length;
+    double breadth;
+
+public:
+    
+    Rectangle() : length(0), breadth(0) {}
+
+    
+    Rectangle(double l, double b) : length(l), breadth(b) {}
+
+    
+    Rectangle(double side) : length(side), breadth(side) {}
+
+    
+    double area() const {
+        return length * breadth;
+    }
+
+    
+    void display() const {
+        cout << "Length: " << length << ", Breadth: " << breadth << ", Area: " << area() << endl;
+    }
+};
+
+int main() {
+    
+    Rectangle r1;
+    cout << "Rectangle with no parameters: ";
+    r1.display();
+
+    
+    Rectangle r2(5);
+    cout << "Rectangle with one parameter: ";
+    r2.display();
+
+    
+    Rectangle r3(4, 7);
+    cout << "Rectangle with two parameters: ";
+    r3.display();
+
+    return 0;
+}
