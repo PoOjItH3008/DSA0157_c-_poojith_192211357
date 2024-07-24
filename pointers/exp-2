@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float val = 3.14;
+    float *ptr = &val;
+
+    cout << "Value: " << *ptr << endl;
+
+    return 0;
+}
