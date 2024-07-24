@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Boolean {
+    bool value;
+public:
+    Boolean(bool v) : value(v) {}
+
+    bool operator!() const {
+        return !value;
+    }
+
+    void display() const {
+        cout << "Value: " << boolalpha << value << endl;
+    }
+};
+
+int main() {
+    Boolean b1(true);
+    Boolean b2 = !b1;
+
+    b1.display();
+    cout << "Inverted ";
+    b2.display();
+
+    return 0;
+}
