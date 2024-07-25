@@ -1,0 +1,22 @@
+#include <iostream>
+
+class Cleanup {
+public:
+    ~Cleanup() {
+        std::cout << "Cleanup in destructor (similar to finally)" << std::endl;
+    }
+};
+
+void exampleFunction() {
+    Cleanup cleanup;
+    throw std::runtime_error("An error occurred");
+}
+
+int main() {
+    try {
+        exampleFunction();
+    } catch (const std::exception& e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+    return 0;
+}
