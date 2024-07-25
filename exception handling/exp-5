@@ -1,0 +1,14 @@
+#include <iostream>
+
+void throwException() {
+    throw "An exception occurred";
+}
+
+int main() {
+    try {
+        throwException();
+    } catch (const char* msg) {
+        std::cout << msg << std::endl;
+    }
+    return 0;
+}
