@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    double length;
+    double breadth;
+
+public:
+    
+    Rectangle() : length(0), breadth(0) {}
+
+    
+    Rectangle(double side) : length(side), breadth(side) {}
+
+    
+    Rectangle(double l, double b) : length(l), breadth(b) {}
+
+    
+    double calculateArea() const {
+        return length * breadth;
+    }
+
+    
+    void display() const {
+        cout << "Length: " << length << ", Breadth: " << breadth << endl;
+    }
+};
+
+int main() {
+    
+    Rectangle rect1;
+    cout << "Rectangle 1:" << endl;
+    rect1.display();
+    cout << "Area: " << rect1.calculateArea() << endl << endl;
+
+    
+    Rectangle rect2(5);
+    cout << "Rectangle 2:" << endl;
+    rect2.display();
+    cout << "Area: " << rect2.calculateArea() << endl << endl;
+
+    
+    Rectangle rect3(4, 7);
+    cout << "Rectangle 3:" << endl;
+    rect3.display();
+    cout << "Area: " << rect3.calculateArea() << endl;
+
+    return 0;
+}
