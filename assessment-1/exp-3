@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual double calculateArea() = 0;
+};
+
+class Square : public Shape {
+protected:  
+    double side;
+public:
+    Square(double s) : side(s) {}
+    double calculateArea() override {
+        return side * side;
+    }
+};
+
+class Cube : public Square {
+public:
+    Cube(double s) : Square(s) {}
+    double calculateVolume() {
+        return side * side * side;
+    }
+
+    double calculateArea() override {
+        return 6 * side * side;  
+    }
+};
+
+int main() {
+    double side;
+    cout << "Enter side length: ";
+    cin >> side;
+    Square sq(side);
+    Cube cb(side);
+    cout << "Square area: " << sq.calculateArea() << endl;
+    cout << "Cube volume: " << cb.calculateVolume() << endl;
+    cout << "Cube surface area: " << cb.calculateArea() << endl;
+    return 0;
+}
