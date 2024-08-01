@@ -1,0 +1,24 @@
+#include <iostream>
+#include <map>
+
+int mostFrequent(int arr[], int n) {
+    std::map<int, int> freq;
+    for (int i = 0; i < n; i++) {
+        freq[arr[i]]++;
+    }
+    int maxFreq = 0, mostFreqElem;
+    for (auto it = freq.begin(); it != freq.end(); it++) {
+        if (it->second > maxFreq) {
+            maxFreq = it->second;
+            mostFreqElem = it->first;
+        }
+    }
+    return mostFreqElem;
+}
+
+int main() {
+    int arr[] = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    std::cout << "Most frequent element: " << mostFrequent(arr, n) << std::endl;
+    return 0;
+}
